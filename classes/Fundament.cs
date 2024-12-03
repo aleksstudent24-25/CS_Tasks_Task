@@ -1,23 +1,29 @@
+using System.Runtime.CompilerServices;
+using System.Security.Principal;
+
 public class Fundament : IFundament
 {
     public void CheckOddOrEven(double a)
     {
-        throw new NotImplementedException();
+        if (a % 2 == 0) Console.WriteLine($"{a} is an even number");
+        else Console.WriteLine($"{a} is an odd number");
     }
 
     public string GetAInterestingFact(string fact)
     {
-        throw new NotImplementedException();
+        return fact;
     }
 
     public void SumTwoNumbers()
     {
-        throw new NotImplementedException();
+        long a = 1;
+        double b = 2;
+        Console.WriteLine($"{a} + {b} = {a + b}");
     }
 
     public double SumTwoNumbersOfGivenType(double a, double b)
     {
-        throw new NotImplementedException();
+        return a + b;
     }
 
 
@@ -25,10 +31,19 @@ public class Fundament : IFundament
 
     public void PrintFibonnaciSeries()
     {
-        // TODO: Implement the Fibonacci sequence
         int a = 0;
         int b = 1;
-        int c;
+
+        Console.Write($"{a}, ");
+        Console.Write($"{b}, ");
+        for (int i = 0; i < 10; i++)
+        {
+            int c = a + b;
+            if(i < 9) Console.Write($"{c}, ");
+            else Console.WriteLine($"{c}");
+            a = b;
+            b = c;
+        }
 
         /* 
         c = a + b
@@ -40,7 +55,9 @@ public class Fundament : IFundament
     public string ReverseString(string str)
     {
         // TODO: reverse the given string
-        return "";
+        char[] array = str.ToCharArray();
+        Array.Reverse(array);
+        return new string(array);
     }
 
     public int RecursiveFactorial(int n)
